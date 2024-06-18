@@ -139,6 +139,7 @@ add_action( 'widgets_init', 'my_woocommerce_thme_widgets_init' );
  */
 function my_woocommerce_thme_scripts() {
 	wp_enqueue_style( 'my-woocommerce-thme-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_enqueue_style('bootstrap-css',get_template_directory_uri().'/css/main.css');
 	wp_style_add_data( 'my-woocommerce-thme-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'my-woocommerce-thme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
@@ -148,7 +149,13 @@ function my_woocommerce_thme_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'my_woocommerce_thme_scripts' );
-
+/**
+ * add fonts
+ */
+function add_fonts(){
+	wp_enqueue_style('nunito','https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+}
+add_action('wp_enqueue_scripts','add_fonts');
 /**
  * Implement the Custom Header feature.
  */
