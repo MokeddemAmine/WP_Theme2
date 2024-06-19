@@ -8339,39 +8339,11 @@ textarea.form-control-lg {
 }
 
 .rounded {
-  border-radius: var(--bs-border-radius) !important;
-}
-
-.rounded-0 {
-  border-radius: 0 !important;
-}
-
-.rounded-1 {
-  border-radius: var(--bs-border-radius-sm) !important;
-}
-
-.rounded-2 {
-  border-radius: var(--bs-border-radius) !important;
-}
-
-.rounded-3 {
-  border-radius: var(--bs-border-radius-lg) !important;
-}
-
-.rounded-4 {
-  border-radius: var(--bs-border-radius-xl) !important;
-}
-
-.rounded-5 {
-  border-radius: var(--bs-border-radius-xxl) !important;
+  border-radius: 1rem !important;
 }
 
 .rounded-circle {
   border-radius: 50% !important;
-}
-
-.rounded-pill {
-  border-radius: var(--bs-border-radius-pill) !important;
 }
 
 .rounded-top {
@@ -11436,4 +11408,16 @@ a {
   background-color: rgb(127, 24, 127);
   color: #fff;
   border: none;
+}
+
+/******** Front Page **********/
+/***** Slider ******/
+.carousel .carousel-control-prev, .carousel .carousel-control-next {
+  width: 9%;
+}
+.carousel .carousel-control-prev span, .carousel .carousel-control-next span {
+  display: inline-block !important;
+  background-color: rgba(39, 34, 34, 0.5);
+  border-radius: 50%;
+  padding: 0.5rem;
 }/*# sourceMappingURL=main.css.map */
