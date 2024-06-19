@@ -139,6 +139,7 @@ add_action( 'widgets_init', 'my_woocommerce_thme_widgets_init' );
  */
 function my_woocommerce_thme_scripts() {
 	wp_enqueue_style( 'my-woocommerce-thme-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_enqueue_style('bootstrap-icons','https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css');
 	wp_enqueue_style('bootstrap-css',get_template_directory_uri().'/css/main.css');
 	wp_style_add_data( 'my-woocommerce-thme-style', 'rtl', 'replace' );
 
@@ -182,4 +183,19 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+/**
+ * Show cart contents / total Ajax
+ */
+add_filter( 'woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment' );
 
+function woocommerce_header_add_to_cart_fragment( $fragments ) {
+	global $woocommerce;
+
+	ob_start();
+
+	?>
+	<a class="cart-customlocation" href="<?php echo esc_url(wc_get_cart_url()); ?>" title="<?php _e('View your shopping cart', 'woothemes'); ?>"><?php echo sprintf(_n('%d item', '%d items', $woocommerce->cart->cart_contents_count, 'woothemes'), $woocommerce->cart->cart_contents_count);?> – <?php echo $woocommerce->cart->get_cart_total(); ?></a>
+	<?php
+	$fragments['a.cart-customlocation'] = ob_get_clean();
+	return $fragments;
+}
