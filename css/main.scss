@@ -8,10 +8,14 @@ body{
 // include custom variables default overrides here
 $primary : rgb(127, 24, 127);
 $gray : #e6e6e6;
+$secondary: #f9f9f9;
+$danger:#A70404;
 
 $theme-colors:(
   "primary": $primary,
-  "gray"  : $gray
+  "gray"  : $gray,
+  "secondary": $secondary,
+  "danger"  : $danger,
 );
 // create your own map
 $custom-color:(
@@ -80,6 +84,7 @@ a{
     background-color: rgb(156, 24, 156);
   }
   a{
+    text-transform: uppercase;
     color:var(--bs-white) !important;
     padding: .6rem 1.4rem;
   }
@@ -93,6 +98,14 @@ a{
     color:$white;
     border:none;
   }
+
+  .sub-menu{
+    display:flex;
+    flex-direction: column;
+    li{
+      background-color: $primary !important;
+    }
+  }
 }
 
 /******** Front Page **********/
@@ -105,6 +118,43 @@ a{
       background-color: rgba(39, 34, 34, 0.5);
       border-radius:50%;
       padding:.5rem;
+    }
+  }
+}
+/***** Slider ******/
+.categories{
+  
+    &__col{
+      height:212px;
+      img{
+        object-fit: cover;
+      }
+      h3{
+        opacity:.8;
+      }
+    }
+
+    @include media-breakpoint-up(md){
+      .categories__col{
+        height:346px;
+      }
+    }
+}
+
+/******** Footer **********/
+.site-footer{
+  .menu{
+    margin:0;
+    padding:0;
+    list-style-type: none;
+    a{
+      color:$white;
+      display: block;
+      padding:.3rem;
+      font-size:.8rem;
+      &:hover{
+        text-decoration: underline;
+      }
     }
   }
 }

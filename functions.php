@@ -206,3 +206,49 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
 	$fragments['a.cart-customlocation'] = ob_get_clean();
 	return $fragments;
 }
+
+/**
+ * Footer Widgets 
+ */
+
+ function footer_widget(){
+	$args = array(
+		'id'			=> 'footer-widget',
+		'name'			=> __('footer widget','text_domain'),
+		'description'	=> __('footer widget','text_domain'),
+		'before_title'	=> '<h3 class="title"',
+		'after_title'	=> '</h3>',
+		'before_widget'	=> '<div id="%1$s" class="widget %2$s">',
+		'after_widget'	=> '</div>',
+	);
+	register_sidebar($args);
+ }
+ add_action('widgets_init','footer_widget');
+
+ function footer_widget_two(){
+	$args = array(
+		'id'			=> 'footer-widget-two',
+		'name'			=> __('footer widget two','text_domain'),
+		'description'	=> __('footer widget','text_domain'),
+		'before_title'	=> '<h3 class="title"',
+		'after_title'	=> '</h3>',
+		'before_widget'	=> '<div id="%1$s" class="widget %2$s">',
+		'after_widget'	=> '</div>',
+	);
+	register_sidebar($args);
+ }
+ add_action('widgets_init','footer_widget_two');
+
+ function footer_widget_three(){
+	$args = array(
+		'id'			=> 'footer-widget-three',
+		'name'			=> __('footer widget three','text_domain'),
+		'description'	=> __('footer widget','text_domain'),
+		'before_title'	=> '<h3 class="title"',
+		'after_title'	=> '</h3>',
+		'before_widget'	=> '<div id="%1$s" class="widget %2$s">',
+		'after_widget'	=> '</div>',
+	);
+	register_sidebar($args);
+ }
+ add_action('widgets_init','footer_widget_three');
